@@ -491,36 +491,35 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 2.5rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 .bury-hill-page .bh-carousel__title {
   font-family: var(--bh-font-headline);
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 600;
   color: var(--bh-primary);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .bury-hill-page .bh-carousel__title {
     font-size: 2.25rem;
   }
 }
 
 .bury-hill-page .bh-carousel__subtitle {
-  font-size: 1rem;
+  font-size: 0.9375rem;
   color: var(--bh-on-surface-variant);
   max-width: 600px;
+  line-height: 1.5;
 }
 
 .bury-hill-page .bh-carousel__nav-btns {
-  display: none;
+  display: flex;
   gap: 0.5rem;
-}
-@media (min-width: 768px) {
-  .bury-hill-page .bh-carousel__nav-btns {
-    display: flex;
-  }
+  flex-shrink: 0;
 }
 
 .bury-hill-page .bh-carousel__nav-btn {
