@@ -380,6 +380,7 @@ const getBlock2 = (s) => {
   </div>
 </section>
 `;
+};
 
 const getBlock3 = (s) => `
 <!-- BLOCK 3: BRAND STORY & HERITAGE BENTO -->
