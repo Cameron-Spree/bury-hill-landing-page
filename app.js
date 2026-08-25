@@ -83,7 +83,7 @@ const defaultState = {
             sku: "H00008597",
             title: "Bury Hill GP10® Multi-Purpose Topsoil",
             desc: "Quality, versatile 10mm screened topsoil ideal for landscaping, lawns, planting borders, turfing and garden beds (0.7m³ Bulk Bag).",
-            img: "https://www.lawsons.co.uk/media/catalog/product/g/p/gp10-1200-800-750x500_1_.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=265&width=265&canvas=265:265",
+            img: "https://www.lawsons.co.uk/media/catalog/product/g/p/gp10-1200-800-750x500_1_.jpg",
             btnText: "View Product",
             btnUrl: "https://www.lawsons.co.uk/bury-hill-gp10-multi-purpose-topsoil"
         },
@@ -92,7 +92,7 @@ const defaultState = {
             sku: "H00008598",
             title: "Bury Hill Low Fertility Topsoil",
             desc: "Specialist low-nutrient topsoil ideal for establishing wildflower meadows, species-rich grassland and ecological landscaping (0.7m³ Bulk Bag).",
-            img: "https://www.lawsons.co.uk/media/catalog/product/l/o/low_fertility_soil_bhl-1200x800.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=265&width=265&canvas=265:265",
+            img: "https://www.lawsons.co.uk/media/catalog/product/l/o/low_fertility_soil_bhl-1200x800.jpg",
             btnText: "View Product",
             btnUrl: "https://www.lawsons.co.uk/low-fertility-topsoil"
         },
@@ -101,7 +101,7 @@ const defaultState = {
             sku: "H00008599",
             title: "Bury Hill Ericaceous Elevated pH Topsoil",
             desc: "Targeted acidic soil blend formulated for acid-loving shrubs, rhododendrons, azaleas, heathers and camellias (0.7m³ Bulk Bag).",
-            img: "https://www.lawsons.co.uk/media/catalog/product/n/a/natural_ericaceous_elevated_ph_topsoil_bhl_sized-750x500.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=265&width=265&canvas=265:265",
+            img: "https://www.lawsons.co.uk/media/catalog/product/n/a/natural_ericaceous_elevated_ph_topsoil_bhl_sized-750x500.jpg",
             btnText: "View Product",
             btnUrl: "https://www.lawsons.co.uk/ericaceous-elevated-ph-topsoil-s"
         },
@@ -110,7 +110,7 @@ const defaultState = {
             sku: "H00008600",
             title: "Bury Hill Pure White Play Sand",
             desc: "Silica-based, sub-rounded non-staining sand tested to BS EN 1177 for children’s sandpits, play areas and creative spaces (850kg Bulk Bag).",
-            img: "https://www.lawsons.co.uk/media/catalog/product/p/u/pure-white-play-sand-dry-1000-x-600-1200x800_1.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=265&width=265&canvas=265:265",
+            img: "https://www.lawsons.co.uk/media/catalog/product/p/u/pure-white-play-sand-dry-1000-x-600-1200x800_1.jpg",
             btnText: "View Product",
             btnUrl: "https://www.lawsons.co.uk/pure-white-play-sand"
         },
@@ -119,7 +119,7 @@ const defaultState = {
             sku: "H00008601",
             title: "Bury Hill Composted Bark Fines 0-10mm",
             desc: "Organic bark fines for soil structure improvement, mulching garden beds, weed suppression and moisture retention (0.7m³ Bulk Bag).",
-            img: "https://www.lawsons.co.uk/media/catalog/product/c/o/composted_bark_fines_bhl-750x500_1_.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=265&width=265&canvas=265:265",
+            img: "https://www.lawsons.co.uk/media/catalog/product/c/o/composted_bark_fines_bhl-750x500_1_.jpg",
             btnText: "View Product",
             btnUrl: "https://www.lawsons.co.uk/composted-bark-fines-0-10mm"
         },
@@ -128,7 +128,7 @@ const defaultState = {
             sku: "H00008602",
             title: "Bury Hill Premium Hardwood Play Chip",
             desc: "100% natural British hardwood chips (5–35mm) tested to BS EN 1177:2008 for playgrounds, pathways and chicken runs (0.7m³ Bulk Bag).",
-            img: "https://www.lawsons.co.uk/media/catalog/product/p/r/premium_hardwood_play_chip_bhl-750x500.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=265&width=265&canvas=265:265",
+            img: "https://www.lawsons.co.uk/media/catalog/product/p/r/premium_hardwood_play_chip_bhl-750x500.jpg",
             btnText: "View Product",
             btnUrl: "https://www.lawsons.co.uk/premium-hardwood-play-chip-premium"
         },
@@ -137,7 +137,7 @@ const defaultState = {
             sku: "H00008603",
             title: "Bury Hill John Innes Potting Compost No. 3",
             desc: "Traditional nutrient-rich loam formula with 3x nutrients for mature houseplants, trees, shrubs, vines and heavy feeders (0.7m³ Bulk Bag).",
-            img: "https://www.lawsons.co.uk/media/catalog/product/j/o/john_innes_no.3_main_1200x800-750x500.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=265&width=265&canvas=265:265",
+            img: "https://www.lawsons.co.uk/media/catalog/product/j/o/john_innes_no.3_main_1200x800-750x500.jpg",
             btnText: "View Product",
             btnUrl: "https://www.lawsons.co.uk/john-innes-potting-compost-no-3"
         },
@@ -146,7 +146,7 @@ const defaultState = {
             sku: "H00008605",
             title: "Bury Hill Buff Self-Binding Gravel 0-10mm",
             desc: "Graded limestone creating a firm, durable and natural self-binding surface for footpaths, country estates and park trails (850kg Bulk Bag).",
-            img: "https://www.lawsons.co.uk/media/catalog/product/s/e/self_binding_golden_gravel_bhl-750x500.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=265&width=265&canvas=265:265",
+            img: "https://www.lawsons.co.uk/media/catalog/product/s/e/self_binding_golden_gravel_bhl-750x500.jpg",
             btnText: "View Product",
             btnUrl: "https://www.lawsons.co.uk/buff-self-binding-gravel-0-10mm-bound-gravel"
         },
@@ -155,7 +155,7 @@ const defaultState = {
             sku: "H00008606",
             title: "Bury Hill Organic Soil Conditioner",
             desc: "BSI PAS100:2018 certified peat-free soil improver screened to 10mm to revitalise heavy clay and sandy soils (0.7m³ Bulk Bag).",
-            img: "https://www.lawsons.co.uk/media/catalog/product/o/r/organic_soil_conditioner_bhl-750x500.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=265&width=265&canvas=265:265",
+            img: "https://www.lawsons.co.uk/media/catalog/product/o/r/organic_soil_conditioner_bhl-750x500.jpg",
             btnText: "View Product",
             btnUrl: "https://www.lawsons.co.uk/organic-soil-conditioner"
         },
@@ -164,7 +164,7 @@ const defaultState = {
             sku: "H00008604",
             title: "Bury Hill 5mm Sand/Soil Rootzone (60/40)",
             desc: "Precision drum-mixed 60/40 free-draining sand and BS3882 topsoil screened to 5mm for sports pitches and luxury lawns (850kg Bulk Bag).",
-            img: "https://www.lawsons.co.uk/media/catalog/product/s/a/sand_soil_contract_rootzone_5mm_60_40-750x500_2.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=265&width=265&canvas=265:265",
+            img: "https://www.lawsons.co.uk/media/catalog/product/s/a/sand_soil_contract_rootzone_5mm_60_40-750x500_2.jpg",
             btnText: "View Product",
             btnUrl: "https://www.lawsons.co.uk/sand-soil-contract-rootzone-60-40-5mm"
         }
