@@ -5,19 +5,20 @@
 
 /* ---------- SCOPED ROOT & CSS VARIABLES ---------- */
 .bury-hill-page {
-  /* Brand Earth Palette */
-  --bh-primary: #061b0e;             /* Deep Forest Green */
-  --bh-primary-light: #1b3022;       /* Forest Pine Container */
-  --bh-primary-dim: #819986;
+  /* Brand Slate Blue & Earth Palette */
+  --bh-primary: #1f3b48;             /* Deep Slate Blue */
+  --bh-primary-light: #2c5163;       /* Slate Pine Container */
+  --bh-primary-dim: #7198aa;
   --bh-on-primary: #ffffff;
   
+  --bh-brand-blue: #628A9D;          /* Primary Bury Hill Slate Blue */
+  --bh-brand-blue-hover: #4e6f7e;
+  --bh-brand-blue-dark: #1b3542;
+  --bh-brand-blue-light: rgba(98, 138, 157, 0.14);
+
   --bh-brand-green: #A5B918;         /* Bury Hill Olive/Lime Accent */
   --bh-brand-green-hover: #8f9f15;
   --bh-brand-green-light: rgba(165, 185, 24, 0.12);
-  
-  --bh-brand-blue: #628A9D;          /* Slate Neutral / Accent */
-  --bh-brand-blue-hover: #4e6f7e;
-  --bh-brand-blue-light: rgba(98, 138, 157, 0.12);
 
   --bh-secondary: #77583d;           /* Burnt Umber / Rich Loam */
   --bh-secondary-container: #ffd5b2;
@@ -137,13 +138,13 @@
 }
 
 .bury-hill-page .bh-btn--primary {
-  background-color: var(--bh-brand-green);
+  background-color: var(--bh-brand-blue);
   color: #ffffff;
-  border-color: var(--bh-brand-green);
+  border-color: var(--bh-brand-blue);
 }
 .bury-hill-page .bh-btn--primary:hover {
-  background-color: var(--bh-brand-green-hover);
-  border-color: var(--bh-brand-green-hover);
+  background-color: var(--bh-brand-blue-dark);
+  border-color: var(--bh-brand-blue-dark);
   color: #ffffff;
 }
 
@@ -171,13 +172,13 @@
 .bury-hill-page .bh-btn--card {
   width: 100%;
   background-color: transparent;
-  color: var(--bh-brand-green);
-  border: 1px solid var(--bh-brand-green);
+  color: var(--bh-brand-blue);
+  border: 1px solid var(--bh-brand-blue);
   padding: 0.75rem 1rem;
   margin-top: auto;
 }
 .bury-hill-page .bh-btn--card:hover {
-  background-color: var(--bh-brand-green);
+  background-color: var(--bh-brand-blue);
   color: #ffffff;
 }
 
@@ -224,16 +225,31 @@
   }
 }
 
+.bury-hill-page .bh-hero__brand-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.bury-hill-page .bh-hero__logo {
+  max-height: 48px;
+  max-width: 220px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
 .bury-hill-page .bh-hero__badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--bh-brand-green);
+  color: var(--bh-brand-blue);
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  margin-bottom: 1rem;
 }
 
 .bury-hill-page .bh-hero__title {
@@ -336,13 +352,13 @@
    ========================================================================== */
 .bury-hill-page .bh-announcement {
   padding: 3rem 0;
-  background-color: #061b0e;
-  background: linear-gradient(135deg, #061b0e 0%, #11281a 50%, #061b0e 100%);
+  background-color: #1f3b48;
+  background: linear-gradient(135deg, #18303b 0%, #294f61 50%, #152933 100%);
   color: #ffffff;
   position: relative;
   overflow: hidden;
-  border-bottom: 2px solid #A5B918;
-  border-top: 1px solid rgba(165, 185, 24, 0.3);
+  border-bottom: 3px solid var(--bh-brand-blue);
+  border-top: 1px solid rgba(98, 138, 157, 0.35);
 }
 
 .bury-hill-page .bh-announcement::before {
@@ -352,7 +368,7 @@
   right: -10%;
   width: 450px;
   height: 450px;
-  background: radial-gradient(circle, rgba(165, 185, 24, 0.15) 0%, rgba(165, 185, 24, 0) 70%);
+  background: radial-gradient(circle, rgba(98, 138, 157, 0.25) 0%, rgba(98, 138, 157, 0) 70%);
   pointer-events: none;
 }
 
@@ -383,9 +399,9 @@
   gap: 0.5rem;
   padding: 0.35rem 0.875rem;
   border-radius: var(--bh-radius-full);
-  background-color: rgba(165, 185, 24, 0.2);
-  border: 1px solid rgba(165, 185, 24, 0.5);
-  color: #A5B918;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -410,7 +426,7 @@
 .bury-hill-page .bh-announcement__text {
   font-size: 0.95rem;
   line-height: 1.65;
-  color: #d1ded5 !important;
+  color: #e1ebf0 !important;
   margin: 0;
   max-width: 820px;
 }
@@ -429,9 +445,9 @@
 }
 
 .bury-hill-page .bh-btn--announcement-primary {
-  background-color: #A5B918;
-  color: #061b0e !important;
-  border: 1px solid #A5B918;
+  background-color: #ffffff;
+  color: #1f3b48 !important;
+  border: 1px solid #ffffff;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
@@ -444,10 +460,10 @@
   white-space: nowrap;
 }
 .bury-hill-page .bh-btn--announcement-primary:hover {
-  background-color: #b8cc1a;
-  color: #061b0e !important;
+  background-color: #e9f2f7;
+  color: #12242d !important;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(165, 185, 24, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .bury-hill-page .bh-btn--announcement-ghost {

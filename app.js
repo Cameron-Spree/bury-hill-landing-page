@@ -43,13 +43,12 @@ const defaultState = {
     scFooterDesc: 1.0,
 
     // HERO SECTION
+    heroLogo: "https://www.buryhilltopsoilandlogs.co.uk/image/catalog/logo.png",
     heroBadge: "Established Specialists",
     heroTitle: "Premium Landscape Supplies for Surrey, Sussex & London",
     heroDesc: "Providing the highest grade certified topsoils, premium cultivated lawn turf, and professional landscaping materials to trade experts and discerning homeowners across the South East.",
     heroBtn1: "Explore Our Range",
     heroBtn1Url: "#bury-hill-carousel",
-    heroBtn2: "Trade Applications",
-    heroBtn2Url: "#bury-hill-trade",
     heroImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuB-a5a2H5HJX4F49crR7fq2siU7B8I9Nm5mP5QAkJ9L8EO9PphTG8vxCwOwxjFO8QugCV90sWZKvSfpdUsSFFs9A-2wsRob5lzXAblDiDOXu0gK-bl6cEgIQjKHW_U4C5dgmaNfejLW-mGpCOP_Ja6U8Wagq9F-q2ylwO6kINfh1MwlVaeFyR93JBiRr8faqEWHS1k8rpszUdwitMtcj1Ulwec0MtrPIuHQXpts0VAWLrkaaae0_PI",
 
     // TRUST SIGNALS STRIP (3 Items)
@@ -318,10 +317,13 @@ const getBlock2 = (s) => `
   <div class="bh-hero__overlay"></div>
   <div class="bh-container" style="position: relative; z-index: 10; padding-top: 4.5rem; padding-bottom: 4.5rem;">
     <div class="bh-hero__content-box">
-      <span class="bh-hero__badge">
-        <span class="material-symbols-outlined" style="font-size: 16px;">workspace_premium</span>
-        ${s.heroBadge}
-      </span>
+      <div class="bh-hero__brand-header">
+        <img src="${s.heroLogo || 'https://www.buryhilltopsoilandlogs.co.uk/image/catalog/logo.png'}" alt="Bury Hill Landscape Supplies" class="bh-hero__logo" loading="eager" />
+        <span class="bh-hero__badge">
+          <span class="material-symbols-outlined" style="font-size: 16px;">workspace_premium</span>
+          ${s.heroBadge}
+        </span>
+      </div>
       <h1 class="bh-hero__title">
         ${s.heroTitle.replace(/\n/g, '<br/>')}
       </h1>
@@ -330,7 +332,6 @@ const getBlock2 = (s) => `
       </p>
       <div class="bh-hero__actions">
         <a href="${s.heroBtn1Url}" class="bh-btn bh-btn--primary">${s.heroBtn1}</a>
-        <a href="${s.heroBtn2Url}" class="bh-btn bh-btn--secondary">${s.heroBtn2}</a>
       </div>
     </div>
   </div>
