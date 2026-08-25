@@ -45,7 +45,7 @@ const defaultState = {
     // HERO SECTION
     heroLogo: "https://www.buryhilltopsoilandlogs.co.uk/image/catalog/logo.png",
     heroBadge: "Established Specialists",
-    heroTitle: "Premium Landscape Supplies for Surrey, Sussex & London",
+    heroTitle: "Bury Hill Premium Range of Quality Hard and Soft Landscaping Materials",
     heroDesc: "Providing the highest grade certified topsoils, premium cultivated lawn turf, and professional landscaping materials to trade experts and discerning homeowners across the South East.",
     heroBtn1: "Explore Our Range",
     heroBtn1Url: "#bury-hill-carousel",
@@ -311,7 +311,13 @@ const getBlockNewBanner = (s) => `
 `;
 
 // BLOCK GENERATORS FOR MAGENTO CMS
-const getBlock2 = (s) => `
+const getBlock2 = (s) => {
+  let renderedTitle = s.heroTitle.replace(/\n/g, '<br/>');
+  if (!renderedTitle.includes('bh-brand-word')) {
+    renderedTitle = renderedTitle.replace(/\bBury Hill\b/g, '<span class="bh-brand-word">Bury Hill</span>');
+  }
+
+  return `
 <!-- BLOCK 2: HERO & TRUST SIGNALS -->
 <section class="bh-hero" id="bury-hill-hero" style="background-image: url('${s.heroImage}');">
   <div class="bh-hero__overlay"></div>
@@ -325,7 +331,7 @@ const getBlock2 = (s) => `
         </span>
       </div>
       <h1 class="bh-hero__title">
-        ${s.heroTitle.replace(/\n/g, '<br/>')}
+        ${renderedTitle}
       </h1>
       <p class="bh-hero__desc">
         ${s.heroDesc}
@@ -599,7 +605,7 @@ createApp({
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="template-styles.css">
   <style>
@@ -639,7 +645,7 @@ createApp({
                 block1Str = `<!-- Google Fonts & Material Symbols -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 
 <!-- Bury Hill Scoped Styles (Safe for Magento 2) -->

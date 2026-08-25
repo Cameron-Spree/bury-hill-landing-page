@@ -6,45 +6,49 @@
 <!-- Google Fonts & Material Symbols -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 
 <style>
 /* Scoped under .bury-hill-page to guarantee zero bleeding into Lawsons Magento theme */
 .bury-hill-page {
-  --bh-primary: #061b0e;
-  --bh-primary-light: #1b3022;
-  --bh-primary-dim: #819986;
+  /* Brand Slate Blue & Earth Palette */
+  --bh-primary: #1f3b48;             /* Deep Slate Blue */
+  --bh-primary-light: #2c5163;       /* Slate Pine Container */
+  --bh-primary-dim: #7198aa;
   --bh-on-primary: #ffffff;
   
-  --bh-brand-green: #A5B918;
+  --bh-brand-blue: #628A9D;          /* Primary Bury Hill Slate Blue */
+  --bh-brand-blue-hover: #4e6f7e;
+  --bh-brand-blue-dark: #1b3542;
+  --bh-brand-blue-light: rgba(98, 138, 157, 0.14);
+
+  --bh-brand-green: #A5B918;         /* Bury Hill Olive/Lime Accent */
   --bh-brand-green-hover: #8f9f15;
   --bh-brand-green-light: rgba(165, 185, 24, 0.12);
-  
-  --bh-brand-blue: #628A9D;
-  --bh-brand-blue-hover: #4e6f7e;
-  --bh-brand-blue-light: rgba(98, 138, 157, 0.12);
 
-  --bh-secondary: #77583d;
+  --bh-secondary: #77583d;           /* Burnt Umber / Rich Loam */
   --bh-secondary-container: #ffd5b2;
   --bh-on-secondary-container: #795b3f;
 
-  --bh-surface: #faf9f7;
+  --bh-surface: #faf9f7;             /* Warm Sandstone Base */
   --bh-surface-low: #f4f3f1;
   --bh-surface-container: #efeeec;
   --bh-surface-high: #e9e8e6;
   --bh-surface-variant: #e3e2e0;
   
-  --bh-on-surface: #1a1c1b;
-  --bh-on-surface-variant: #434843;
+  --bh-on-surface: #1a1c1b;          /* Charcoal text */
+  --bh-on-surface-variant: #434843;  /* Muted dark sage text */
   --bh-outline: #737973;
   --bh-outline-variant: #c3c8c1;
   --bh-border: #dcdbd8;
 
+  /* Typography */
   --bh-font-headline: 'Source Serif 4', Georgia, serif;
   --bh-font-body: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --bh-font-mono: 'Hanken Grotesk', monospace;
 
+  /* Layout & Containers */
   --bh-container-max: 1280px;
   --bh-margin-desktop: 64px;
   --bh-margin-mobile: 20px;
@@ -228,16 +232,31 @@
   }
 }
 
+.bury-hill-page .bh-hero__brand-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.bury-hill-page .bh-hero__logo {
+  max-height: 48px;
+  max-width: 220px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
 .bury-hill-page .bh-hero__badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--bh-brand-green);
+  color: var(--bh-brand-blue);
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  margin-bottom: 1rem;
 }
 
 .bury-hill-page .bh-hero__title {
@@ -247,6 +266,14 @@
   line-height: 1.15;
   color: var(--bh-primary);
   margin-bottom: 1.25rem;
+}
+
+.bury-hill-page .bh-brand-word {
+  font-family: 'Cinzel', 'Source Serif 4', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--bh-brand-blue);
+  display: inline;
 }
 
 @media (min-width: 1024px) {
@@ -268,7 +295,7 @@
   gap: 1rem;
 }
 
-/* TRUST */
+/* Trust Signals Banner */
 .bury-hill-page .bh-trust-strip {
   background-color: var(--bh-surface-low);
   border-bottom: 1px solid var(--bh-outline-variant);
@@ -476,7 +503,9 @@
   transform: translateY(-1px);
 }
 
-/* STORY */
+/* ==========================================================================
+   BLOCK 3: BRAND STORY & HERITAGE BENTO
+   ========================================================================== */
 .bury-hill-page .bh-story {
   padding: 5rem 0;
 }
@@ -636,7 +665,9 @@
   transform: scale(1.04);
 }
 
-/* CAROUSEL */
+/* ==========================================================================
+   BLOCK 4: 10-PRODUCT SPECIALIST CAROUSEL
+   ========================================================================== */
 .bury-hill-page .bh-carousel-section {
   padding: 5rem 0 6rem;
   background-color: rgba(98, 138, 157, 0.04);
@@ -809,7 +840,9 @@
   flex-grow: 1;
 }
 
-/* TECH */
+/* ==========================================================================
+   BLOCK 5: TECHNICAL STANDARDS & QUALITY GRID
+   ========================================================================== */
 .bury-hill-page .bh-tech {
   padding: 5rem 0;
   background-color: var(--bh-surface);
@@ -906,7 +939,9 @@
   color: var(--bh-on-surface-variant);
 }
 
-/* FAQ */
+/* ==========================================================================
+   BLOCK 6: FAQ ACCORDION & FOOTER CTA BANNER
+   ========================================================================== */
 .bury-hill-page .bh-faq {
   padding: 5rem 0;
   background-color: var(--bh-surface-low);
@@ -985,7 +1020,7 @@
   padding-top: 1rem;
 }
 
-/* FOOTER CTA */
+/* Footer CTA Banner */
 .bury-hill-page .bh-footer-cta {
   padding: 5rem 0;
   background-color: var(--bh-primary);
