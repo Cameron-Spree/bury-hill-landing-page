@@ -89,6 +89,26 @@ body {
   box-shadow: 0 2px 8px rgba(165, 185, 24, 0.3);
 }
 
+.btn-secondary {
+  background-color: #242c26;
+  color: var(--text-main);
+  border: 1px solid var(--border-dark);
+  border-radius: 4px;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
+}
+.btn-secondary:hover {
+  background-color: #2e3831;
+  border-color: var(--border-focus);
+  color: #ffffff;
+}
+
 .btn-danger {
   background-color: var(--danger);
   color: #ffffff;

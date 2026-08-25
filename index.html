@@ -29,6 +29,13 @@
             <button @click="resetState" class="btn-danger" title="Reset all changes to original defaults">
                 <span class="material-symbols-outlined" style="font-size: 18px;">restart_alt</span> Reset Defaults
             </button>
+            <button @click="exportConfigJson" class="btn-secondary" title="Save a backup of your text & settings to a JSON file">
+                <span class="material-symbols-outlined" style="font-size: 18px;">save</span> Backup JSON
+            </button>
+            <button @click="triggerImportJson" class="btn-secondary" title="Restore your saved settings from a JSON file">
+                <span class="material-symbols-outlined" style="font-size: 18px;">upload_file</span> Load JSON
+            </button>
+            <input type="file" id="config-json-input" accept=".json" @change="handleImportJson" style="display: none;" />
             <button @click="exportBlocks" class="btn-primary">
                 <span class="material-symbols-outlined" style="font-size: 18px;">download</span> Export Magento Blocks
             </button>
@@ -40,6 +47,7 @@
         <aside class="builder-sidebar">
             <div class="sidebar-tabs">
                 <button :class="{ active: activeTab === 'hero' }" @click="activeTab = 'hero'">Hero & Trust</button>
+                <button :class="{ active: activeTab === 'announcement' }" @click="activeTab = 'announcement'">New Launch</button>
                 <button :class="{ active: activeTab === 'story' }" @click="activeTab = 'story'">Heritage</button>
                 <button :class="{ active: activeTab === 'products' }" @click="activeTab = 'products'">10 Products</button>
                 <button :class="{ active: activeTab === 'tech' }" @click="activeTab = 'tech'">Standards</button>
@@ -144,6 +152,51 @@
                         <div class="form-group">
                             <label>Description</label>
                             <input type="text" v-model="state.trust3Sub">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEW SUPPLIER ANNOUNCEMENT BANNER TAB -->
+                <div v-show="activeTab === 'announcement'">
+                    <p class="section-help">Highlight that Bury Hill is a prestigious new brand addition to Lawsons, promote the core in-stock range, and direct trade/specialist queries to the official Bury Hill website.</p>
+                    
+                    <div class="form-group" style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-surface); padding: 0.875rem 1rem; border-radius: 8px; border: 1px solid var(--border-dark); margin-bottom: 1.25rem;">
+                        <label style="margin: 0; font-weight: 600; cursor: pointer;" for="toggle-new-banner">Enable Announcement Banner</label>
+                        <input type="checkbox" id="toggle-new-banner" v-model="state.showNewBanner" style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--accent-lime);" />
+                    </div>
+
+                    <div v-show="state.showNewBanner">
+                        <div class="form-group">
+                            <label>Badge / Tag</label>
+                            <input type="text" v-model="state.newBannerTag" placeholder="e.g. NEW AT LAWSONS" />
+                        </div>
+                        <div class="form-group">
+                            <label>Headline</label>
+                            <input type="text" v-model="state.newBannerTitle" />
+                        </div>
+                        <div class="form-group">
+                            <label>Announcement Copy</label>
+                            <textarea v-model="state.newBannerText" rows="4"></textarea>
+                        </div>
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label>Primary CTA Button Text</label>
+                                <input type="text" v-model="state.newBannerBtnText" />
+                            </div>
+                            <div class="form-group">
+                                <label>Bury Hill External Website URL</label>
+                                <input type="text" v-model="state.newBannerBtnUrl" />
+                            </div>
+                        </div>
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label>Secondary Button Text</label>
+                                <input type="text" v-model="state.newBannerSecondaryText" />
+                            </div>
+                            <div class="form-group">
+                                <label>Secondary Target Anchor / URL</label>
+                                <input type="text" v-model="state.newBannerSecondaryUrl" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -417,6 +470,13 @@
                         <div class="form-group"><label>Trust Title</label><input type="number" step="0.1" v-model="state.scTrustTitle"></div>
                         <div class="form-group"><label>Trust Subtitle</label><input type="number" step="0.1" v-model="state.scTrustSub"></div>
                     </div>
+
+                    <h4 class="settings-divider">New Launch Announcement</h4>
+                    <div class="grid-2">
+                        <div class="form-group"><label>Badge / Tag</label><input type="number" step="0.1" v-model="state.scNewBannerTag"></div>
+                        <div class="form-group"><label>Headline</label><input type="number" step="0.1" v-model="state.scNewBannerTitle"></div>
+                    </div>
+                    <div class="form-group"><label>Copy Text</label><input type="number" step="0.1" v-model="state.scNewBannerText"></div>
 
                     <h4 class="settings-divider">Brand Heritage</h4>
                     <div class="grid-2">

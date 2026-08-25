@@ -17,6 +17,10 @@ const defaultState = {
     scTrustTitle: 1.0,
     scTrustSub: 1.0,
 
+    scNewBannerTag: 1.0,
+    scNewBannerTitle: 1.0,
+    scNewBannerText: 1.0,
+
     scStoryTitle: 1.0,
     scStoryLead: 1.0,
     scStoryBody: 1.0,
@@ -60,6 +64,16 @@ const defaultState = {
     trust3Icon: "workspace_premium",
     trust3Title: "BS3882 Certified",
     trust3Sub: "Guaranteed premium quality soils",
+
+    // NEW SUPPLIER & PARTNERSHIP ANNOUNCEMENT BANNER
+    showNewBanner: true,
+    newBannerTag: "NEW AT LAWSONS",
+    newBannerTitle: "Introducing Bury Hill — The UK's Finest Soils & Growing Media",
+    newBannerText: "We are thrilled to announce that Lawsons now stocks Bury Hill's premier soils and landscape supplies. Known for uncompromising quality and precision soil engineering, their products are trusted by the UK's leading landscape architects and horticulturists. We stock their essential core range online for fast regional delivery. To consult with soil scientists or explore their complete extended catalog, visit the official Bury Hill website.",
+    newBannerBtnText: "Explore Bury Hill Website",
+    newBannerBtnUrl: "https://www.buryhilltopsoilandlogs.co.uk/",
+    newBannerSecondaryText: "Browse In-Stock Range",
+    newBannerSecondaryUrl: "#bury-hill-carousel",
 
     // BRAND STORY & BENTO
     storyTag: "Our Heritage & Expertise",
@@ -241,6 +255,10 @@ const getScaleCSS = (s) => `
 .bury-hill-page .bh-trust-item__title { font-size: calc(1.125rem * ${s.scTrustTitle}) !important; }
 .bury-hill-page .bh-trust-item__sub { font-size: calc(0.875rem * ${s.scTrustSub}) !important; }
 
+.bury-hill-page .bh-announcement__badge { font-size: calc(0.75rem * ${s.scNewBannerTag}) !important; }
+.bury-hill-page .bh-announcement__title { font-size: calc(1.75rem * ${s.scNewBannerTitle}) !important; }
+.bury-hill-page .bh-announcement__text { font-size: calc(0.9375rem * ${s.scNewBannerText}) !important; }
+
 .bury-hill-page .bh-story__title { font-size: calc(2rem * ${s.scStoryTitle}) !important; }
 @media (min-width: 1024px) { .bury-hill-page .bh-story__title { font-size: calc(2.25rem * ${s.scStoryTitle}) !important; } }
 .bury-hill-page .bh-story__lead { font-size: calc(1.125rem * ${s.scStoryLead}) !important; }
@@ -263,6 +281,34 @@ const getScaleCSS = (s) => `
 .bury-hill-page .bh-footer-cta__title { font-size: calc(2.25rem * ${s.scFooterTitle}) !important; }
 @media (min-width: 1024px) { .bury-hill-page .bh-footer-cta__title { font-size: calc(3rem * ${s.scFooterTitle}) !important; } }
 .bury-hill-page .bh-footer-cta__desc { font-size: calc(1.125rem * ${s.scFooterDesc}) !important; }
+`;
+
+const getBlockNewBanner = (s) => `
+<!-- BLOCK: NEW SUPPLIER & PARTNERSHIP ANNOUNCEMENT BANNER -->
+<section class="bh-announcement" id="bury-hill-announcement">
+  <div class="bh-container">
+    <div class="bh-announcement__inner">
+      <div class="bh-announcement__content">
+        <span class="bh-announcement__badge">
+          <span class="material-symbols-outlined" style="font-size: 16px;">stars</span>
+          ${s.newBannerTag}
+        </span>
+        <h2 class="bh-announcement__title">${s.newBannerTitle}</h2>
+        <p class="bh-announcement__text">${s.newBannerText}</p>
+      </div>
+      <div class="bh-announcement__actions">
+        <a href="${s.newBannerBtnUrl}" target="_blank" rel="noopener noreferrer" class="bh-btn--announcement-primary">
+          ${s.newBannerBtnText}
+          <span class="material-symbols-outlined" style="font-size: 18px;">open_in_new</span>
+        </a>
+        <a href="${s.newBannerSecondaryUrl}" class="bh-btn--announcement-ghost">
+          ${s.newBannerSecondaryText}
+          <span class="material-symbols-outlined" style="font-size: 18px;">arrow_downward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 `;
 
 // BLOCK GENERATORS FOR MAGENTO CMS
@@ -534,7 +580,14 @@ createApp({
 
         const previewHtml = computed(() => {
             return "<style>" + getScaleCSS(state) + "</style>\n" +
-                   wrapBlock(getBlock2(state) + "\n" + getBlock3(state) + "\n" + getBlock4(state) + "\n" + getBlock5(state) + "\n" + getBlock6(state));
+                   wrapBlock(
+                       getBlock2(state) + "\n" +
+                       (state.showNewBanner ? getBlockNewBanner(state) + "\n" : "") +
+                       getBlock3(state) + "\n" +
+                       getBlock4(state) + "\n" +
+                       getBlock5(state) + "\n" +
+                       getBlock6(state)
+                   );
         });
 
         const previewIframeDoc = computed(() => {
@@ -566,6 +619,7 @@ createApp({
 <body>
   ${wrapBlock(
     getBlock2(state) + "\n" +
+    (state.showNewBanner ? getBlockNewBanner(state) + "\n" : "") +
     getBlock3(state) + "\n" +
     getBlock4(state) + "\n" +
     getBlock5(state) + "\n" +
@@ -605,7 +659,7 @@ ${getScaleCSS(state)}
             }
 
             exportedBlocks.block1 = block1Str;
-            exportedBlocks.block2 = wrapBlock(getBlock2(state));
+            exportedBlocks.block2 = wrapBlock(getBlock2(state) + (state.showNewBanner ? "\n" + getBlockNewBanner(state) : ""));
             exportedBlocks.block3 = wrapBlock(getBlock3(state));
             exportedBlocks.block4 = wrapBlock(getBlock4(state));
             exportedBlocks.block5 = wrapBlock(getBlock5(state));
@@ -613,6 +667,7 @@ ${getScaleCSS(state)}
 
             exportedBlocks.full = `${block1Str}\n\n${wrapBlock(
                 getBlock2(state) + "\n" +
+                (state.showNewBanner ? getBlockNewBanner(state) + "\n" : "") +
                 getBlock3(state) + "\n" +
                 getBlock4(state) + "\n" +
                 getBlock5(state) + "\n" +
@@ -640,6 +695,40 @@ ${getScaleCSS(state)}
                 Object.assign(state, defaultState);
                 location.reload();
             }
+        };
+
+        // JSON CONFIG BACKUP & RESTORE
+        const exportConfigJson = () => {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(state, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", "bury-hill-landing-page-config.json");
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        };
+
+        const triggerImportJson = () => {
+            const input = document.getElementById('config-json-input');
+            if (input) input.click();
+        };
+
+        const handleImportJson = (event) => {
+            const file = event.target.files && event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const imported = JSON.parse(e.target.result);
+                    Object.assign(state, imported);
+                    localStorage.setItem('buryHillBuilderState', JSON.stringify(state));
+                    alert("Configuration imported and saved successfully!");
+                } catch (err) {
+                    alert("Failed to parse JSON file: " + err.message);
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = '';
         };
 
         const addProduct = () => {
@@ -670,27 +759,6 @@ ${getScaleCSS(state)}
             state.faqs.splice(idx, 1);
         };
 
-        // Wire carousel scroll controls inside Vue preview on mount & update
-        const initPreviewCarousel = () => {
-            setTimeout(() => {
-                const prev = document.getElementById('bh-carousel-prev');
-                const next = document.getElementById('bh-carousel-next');
-                const track = document.getElementById('bh-product-track');
-                if (prev && next && track) {
-                    prev.onclick = () => track.scrollBy({ left: -360, behavior: 'smooth' });
-                    next.onclick = () => track.scrollBy({ left: 360, behavior: 'smooth' });
-                }
-            }, 100);
-        };
-
-        onMounted(() => {
-            initPreviewCarousel();
-        });
-
-        watch(previewHtml, () => {
-            initPreviewCarousel();
-        });
-
         return {
             state,
             activeTab,
@@ -703,6 +771,9 @@ ${getScaleCSS(state)}
             exportBlocks,
             copyActiveBlock,
             resetState,
+            exportConfigJson,
+            triggerImportJson,
+            handleImportJson,
             addProduct,
             removeProduct,
             addFaq,
