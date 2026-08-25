@@ -370,11 +370,11 @@ const getBlock4 = (s) => `
         <h2 class="bh-carousel__title">${s.carouselTitle}</h2>
         <p class="bh-carousel__subtitle">${s.carouselSubtitle}</p>
       </div>
-      <div class="bh-carousel__nav-btns">
-        <button class="bh-carousel__nav-btn" id="bh-carousel-prev" aria-label="Previous Products">
+      <div class="bh-carousel__nav-btns bh-carousel__nav-btns--desktop">
+        <button class="bh-carousel__nav-btn bh-carousel-prev-btn" aria-label="Previous Products">
           <span class="material-symbols-outlined">chevron_left</span>
         </button>
-        <button class="bh-carousel__nav-btn" id="bh-carousel-next" aria-label="Next Products">
+        <button class="bh-carousel__nav-btn bh-carousel-next-btn" aria-label="Next Products">
           <span class="material-symbols-outlined">chevron_right</span>
         </button>
       </div>
@@ -397,20 +397,34 @@ const getBlock4 = (s) => `
         `).join('')}
       </div>
     </div>
+
+    <!-- Mobile Navigation Buttons (Centered Below Products) -->
+    <div class="bh-carousel__nav-btns bh-carousel__nav-btns--mobile">
+      <button class="bh-carousel__nav-btn bh-carousel-prev-btn" aria-label="Previous Products">
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+      <button class="bh-carousel__nav-btn bh-carousel-next-btn" aria-label="Next Products">
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>
+    </div>
   </div>
 </section>
 
 <script>
 (function() {
-  var prev = document.getElementById('bh-carousel-prev');
-  var next = document.getElementById('bh-carousel-next');
   var track = document.getElementById('bh-product-track');
-  if (prev && next && track) {
-    prev.addEventListener('click', function() {
-      track.scrollBy({ left: -360, behavior: 'smooth' });
+  var prevBtns = document.querySelectorAll('.bh-carousel-prev-btn');
+  var nextBtns = document.querySelectorAll('.bh-carousel-next-btn');
+  if (track) {
+    prevBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        track.scrollBy({ left: -340, behavior: 'smooth' });
+      });
     });
-    next.addEventListener('click', function() {
-      track.scrollBy({ left: 360, behavior: 'smooth' });
+    nextBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        track.scrollBy({ left: 340, behavior: 'smooth' });
+      });
     });
   }
 })();
