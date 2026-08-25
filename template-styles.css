@@ -1,0 +1,904 @@
+/* ==========================================================================
+   BURY HILL TOPSOIL & LANDSCAPE SUPPLIES — SCOPED DESIGN SYSTEM
+   All rules prefixed with .bury-hill-page to avoid affecting Magento store layout.
+   ========================================================================== */
+
+/* ---------- SCOPED ROOT & CSS VARIABLES ---------- */
+.bury-hill-page {
+  /* Brand Earth Palette */
+  --bh-primary: #061b0e;             /* Deep Forest Green */
+  --bh-primary-light: #1b3022;       /* Forest Pine Container */
+  --bh-primary-dim: #819986;
+  --bh-on-primary: #ffffff;
+  
+  --bh-brand-green: #A5B918;         /* Bury Hill Olive/Lime Accent */
+  --bh-brand-green-hover: #8f9f15;
+  --bh-brand-green-light: rgba(165, 185, 24, 0.12);
+  
+  --bh-brand-blue: #628A9D;          /* Slate Neutral / Accent */
+  --bh-brand-blue-hover: #4e6f7e;
+  --bh-brand-blue-light: rgba(98, 138, 157, 0.12);
+
+  --bh-secondary: #77583d;           /* Burnt Umber / Rich Loam */
+  --bh-secondary-container: #ffd5b2;
+  --bh-on-secondary-container: #795b3f;
+
+  --bh-surface: #faf9f7;             /* Warm Sandstone Base */
+  --bh-surface-low: #f4f3f1;
+  --bh-surface-container: #efeeec;
+  --bh-surface-high: #e9e8e6;
+  --bh-surface-variant: #e3e2e0;
+  
+  --bh-on-surface: #1a1c1b;          /* Charcoal text */
+  --bh-on-surface-variant: #434843;  /* Muted dark sage text */
+  --bh-outline: #737973;
+  --bh-outline-variant: #c3c8c1;
+  --bh-border: #dcdbd8;
+
+  /* Typography */
+  --bh-font-headline: 'Source Serif 4', Georgia, serif;
+  --bh-font-body: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --bh-font-mono: 'Hanken Grotesk', monospace;
+
+  /* Layout & Containers */
+  --bh-container-max: 1280px;
+  --bh-margin-desktop: 64px;
+  --bh-margin-mobile: 20px;
+  --bh-gutter: 24px;
+  --bh-radius-sm: 2px;
+  --bh-radius: 4px;
+  --bh-radius-lg: 8px;
+  --bh-radius-full: 9999px;
+
+  /* Transitions */
+  --bh-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --bh-duration: 250ms;
+
+  /* Base Styles */
+  font-family: var(--bh-font-body) !important;
+  color: var(--bh-on-surface) !important;
+  background-color: var(--bh-surface) !important;
+  line-height: 1.5 !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  font-size: 16px;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.bury-hill-page *,
+.bury-hill-page *::before,
+.bury-hill-page *::after {
+  box-sizing: border-box !important;
+}
+
+.bury-hill-page img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.bury-hill-page a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.bury-hill-page button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.bury-hill-page .material-symbols-outlined {
+  font-family: 'Material Symbols Outlined' !important;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- COMMON CONTAINER ---------- */
+.bury-hill-page .bh-container {
+  max-width: var(--bh-container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--bh-margin-mobile);
+  padding-right: var(--bh-margin-mobile);
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .bury-hill-page .bh-container {
+    padding-left: var(--bh-margin-desktop);
+    padding-right: var(--bh-margin-desktop);
+  }
+}
+
+/* ---------- BUTTONS ---------- */
+.bury-hill-page .bh-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: var(--bh-radius-sm);
+  transition: all var(--bh-duration) var(--bh-ease);
+  border: 1px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.bury-hill-page .bh-btn--primary {
+  background-color: var(--bh-brand-green);
+  color: #ffffff;
+  border-color: var(--bh-brand-green);
+}
+.bury-hill-page .bh-btn--primary:hover {
+  background-color: var(--bh-brand-green-hover);
+  border-color: var(--bh-brand-green-hover);
+  color: #ffffff;
+}
+
+.bury-hill-page .bh-btn--secondary {
+  background-color: transparent;
+  color: var(--bh-brand-blue);
+  border-color: var(--bh-brand-blue);
+}
+.bury-hill-page .bh-btn--secondary:hover {
+  background-color: var(--bh-brand-blue);
+  color: #ffffff;
+}
+
+.bury-hill-page .bh-btn--forest {
+  background-color: var(--bh-primary);
+  color: #ffffff;
+  border-color: var(--bh-primary);
+}
+.bury-hill-page .bh-btn--forest:hover {
+  background-color: var(--bh-primary-light);
+  border-color: var(--bh-primary-light);
+  color: #ffffff;
+}
+
+.bury-hill-page .bh-btn--card {
+  width: 100%;
+  background-color: transparent;
+  color: var(--bh-brand-green);
+  border: 1px solid var(--bh-brand-green);
+  padding: 0.75rem 1rem;
+  margin-top: auto;
+}
+.bury-hill-page .bh-btn--card:hover {
+  background-color: var(--bh-brand-green);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   BLOCK 2: HERO SECTION & TRUST SIGNALS
+   ========================================================================== */
+.bury-hill-page .bh-hero {
+  position: relative;
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  background-color: var(--bh-surface-variant);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.bury-hill-page .bh-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(250, 249, 247, 0.95) 0%, rgba(250, 249, 247, 0.85) 45%, rgba(250, 249, 247, 0.3) 100%);
+}
+
+@media (max-width: 768px) {
+  .bury-hill-page .bh-hero__overlay {
+    background: linear-gradient(180deg, rgba(250, 249, 247, 0.95) 0%, rgba(250, 249, 247, 0.88) 100%);
+  }
+}
+
+.bury-hill-page .bh-hero__content-box {
+  position: relative;
+  z-index: 10;
+  max-width: 680px;
+  background: rgba(250, 249, 247, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 2.5rem;
+  border: 1px solid var(--bh-outline-variant);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+@media (max-width: 640px) {
+  .bury-hill-page .bh-hero__content-box {
+    padding: 1.5rem;
+  }
+}
+
+.bury-hill-page .bh-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--bh-brand-green);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+}
+
+.bury-hill-page .bh-hero__title {
+  font-family: var(--bh-font-headline);
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--bh-primary);
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  .bury-hill-page .bh-hero__title {
+    font-size: 3.25rem;
+  }
+}
+
+.bury-hill-page .bh-hero__desc {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--bh-on-surface-variant);
+  margin-bottom: 2rem;
+}
+
+.bury-hill-page .bh-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Trust Signals Banner */
+.bury-hill-page .bh-trust-strip {
+  background-color: var(--bh-surface-low);
+  border-bottom: 1px solid var(--bh-outline-variant);
+  border-top: 1px solid var(--bh-outline-variant);
+  padding: 1.75rem 0;
+}
+
+.bury-hill-page .bh-trust-strip__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .bury-hill-page .bh-trust-strip__grid {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.bury-hill-page .bh-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.bury-hill-page .bh-trust-item__icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--bh-radius-full);
+  background-color: var(--bh-brand-blue-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bh-brand-blue);
+  flex-shrink: 0;
+}
+
+.bury-hill-page .bh-trust-item__title {
+  font-family: var(--bh-font-headline);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--bh-primary);
+  margin-bottom: 0.15rem;
+}
+
+.bury-hill-page .bh-trust-item__sub {
+  font-size: 0.875rem;
+  color: var(--bh-on-surface-variant);
+}
+
+.bury-hill-page .bh-trust-divider {
+  display: none;
+  width: 1px;
+  height: 48px;
+  background-color: var(--bh-outline-variant);
+}
+@media (min-width: 768px) {
+  .bury-hill-page .bh-trust-divider {
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   BLOCK 3: BRAND STORY & HERITAGE BENTO
+   ========================================================================== */
+.bury-hill-page .bh-story {
+  padding: 5rem 0;
+}
+
+.bury-hill-page .bh-story__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--bh-gutter);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .bury-hill-page .bh-story__grid {
+    grid-template-columns: 5fr 7fr;
+  }
+}
+
+.bury-hill-page .bh-story__text-col {
+  order: 2;
+}
+@media (min-width: 1024px) {
+  .bury-hill-page .bh-story__text-col {
+    order: 1;
+  }
+}
+
+.bury-hill-page .bh-story__tag {
+  color: var(--bh-brand-green);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.bury-hill-page .bh-story__title {
+  font-family: var(--bh-font-headline);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--bh-primary);
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .bury-hill-page .bh-story__title {
+    font-size: 2.25rem;
+  }
+}
+
+.bury-hill-page .bh-story__lead {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--bh-on-surface-variant);
+  margin-bottom: 1.25rem;
+}
+
+.bury-hill-page .bh-story__body {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--bh-on-surface-variant);
+  margin-bottom: 2rem;
+}
+
+.bury-hill-page .bh-story__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--bh-brand-blue);
+  transition: color var(--bh-duration) var(--bh-ease);
+}
+.bury-hill-page .bh-story__link:hover {
+  color: var(--bh-brand-green);
+}
+.bury-hill-page .bh-story__link .material-symbols-outlined {
+  transition: transform var(--bh-duration) var(--bh-ease);
+}
+.bury-hill-page .bh-story__link:hover .material-symbols-outlined {
+  transform: translateX(4px);
+}
+
+.bury-hill-page .bh-story__bento {
+  order: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media (min-width: 1024px) {
+  .bury-hill-page .bh-story__bento {
+    order: 2;
+  }
+}
+
+.bury-hill-page .bh-bento__item--wide {
+  grid-column: span 2;
+  aspect-ratio: 16 / 9;
+  background-color: var(--bh-surface-container);
+  overflow: hidden;
+  border: 1px solid var(--bh-outline-variant);
+}
+
+.bury-hill-page .bh-bento__item--square {
+  aspect-ratio: 1 / 1;
+  background-color: var(--bh-surface-container);
+  overflow: hidden;
+  border: 1px solid var(--bh-outline-variant);
+}
+
+.bury-hill-page .bh-bento__item--stat {
+  aspect-ratio: 1 / 1;
+  background-color: var(--bh-brand-blue);
+  border: 1px solid var(--bh-outline-variant);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.bury-hill-page .bh-bento__stat-num {
+  font-family: var(--bh-font-headline);
+  font-size: 3.25rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.bury-hill-page .bh-bento__stat-title {
+  font-family: var(--bh-font-headline);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.bury-hill-page .bh-bento__stat-desc {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+}
+
+.bury-hill-page .bh-bento__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms var(--bh-ease);
+}
+.bury-hill-page .bh-bento__item--wide:hover .bh-bento__img,
+.bury-hill-page .bh-bento__item--square:hover .bh-bento__img {
+  transform: scale(1.04);
+}
+
+/* ==========================================================================
+   BLOCK 4: 10-PRODUCT SPECIALIST CAROUSEL
+   ========================================================================== */
+.bury-hill-page .bh-carousel-section {
+  padding: 5rem 0 6rem;
+  background-color: rgba(98, 138, 157, 0.04);
+  border-top: 1px solid var(--bh-outline-variant);
+  border-bottom: 1px solid var(--bh-outline-variant);
+  overflow: hidden;
+}
+
+.bury-hill-page .bh-carousel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+}
+
+.bury-hill-page .bh-carousel__title {
+  font-family: var(--bh-font-headline);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--bh-primary);
+  margin-bottom: 0.75rem;
+}
+@media (min-width: 1024px) {
+  .bury-hill-page .bh-carousel__title {
+    font-size: 2.25rem;
+  }
+}
+
+.bury-hill-page .bh-carousel__subtitle {
+  font-size: 1rem;
+  color: var(--bh-on-surface-variant);
+  max-width: 600px;
+}
+
+.bury-hill-page .bh-carousel__nav-btns {
+  display: none;
+  gap: 0.5rem;
+}
+@media (min-width: 768px) {
+  .bury-hill-page .bh-carousel__nav-btns {
+    display: flex;
+  }
+}
+
+.bury-hill-page .bh-carousel__nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--bh-radius-full);
+  border: 1px solid var(--bh-outline-variant);
+  background-color: var(--bh-surface);
+  color: var(--bh-on-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--bh-duration) var(--bh-ease);
+}
+.bury-hill-page .bh-carousel__nav-btn:hover {
+  border-color: var(--bh-brand-green);
+  color: var(--bh-brand-green);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.bury-hill-page .bh-carousel__track-wrapper {
+  width: 100%;
+}
+
+.bury-hill-page .bh-carousel__track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1.5rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.bury-hill-page .bh-carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.bury-hill-page .bh-product-card {
+  flex: 0 0 310px;
+  scroll-snap-align: start;
+  background-color: var(--bh-surface);
+  border: 1px solid var(--bh-outline-variant);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow var(--bh-duration) var(--bh-ease), transform var(--bh-duration) var(--bh-ease);
+}
+@media (min-width: 768px) {
+  .bury-hill-page .bh-product-card {
+    flex: 0 0 340px;
+  }
+}
+.bury-hill-page .bh-product-card:hover {
+  box-shadow: 0 6px 24px rgba(27, 48, 34, 0.08);
+  transform: translateY(-2px);
+}
+
+.bury-hill-page .bh-product-card__img-wrap {
+  aspect-ratio: 4 / 3;
+  background-color: var(--bh-surface-container);
+  overflow: hidden;
+  border-bottom: 1px solid var(--bh-outline-variant);
+  position: relative;
+}
+
+.bury-hill-page .bh-product-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms var(--bh-ease);
+}
+.bury-hill-page .bh-product-card:hover .bh-product-card__img {
+  transform: scale(1.05);
+}
+
+.bury-hill-page .bh-product-card__body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.bury-hill-page .bh-product-card__badge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--bh-brand-green);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.bury-hill-page .bh-product-card__title {
+  font-family: var(--bh-font-headline);
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--bh-primary);
+  margin-bottom: 0.75rem;
+}
+
+.bury-hill-page .bh-product-card__desc {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--bh-on-surface-variant);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* ==========================================================================
+   BLOCK 5: TECHNICAL STANDARDS & QUALITY GRID
+   ========================================================================== */
+.bury-hill-page .bh-tech {
+  padding: 5rem 0;
+  background-color: var(--bh-surface);
+}
+
+.bury-hill-page .bh-tech__header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 3.5rem;
+}
+
+.bury-hill-page .bh-tech__tag {
+  color: var(--bh-brand-green);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.bury-hill-page .bh-tech__title {
+  font-family: var(--bh-font-headline);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--bh-primary);
+  margin-bottom: 1rem;
+}
+@media (min-width: 1024px) {
+  .bury-hill-page .bh-tech__title {
+    font-size: 2.5rem;
+  }
+}
+
+.bury-hill-page .bh-tech__subtitle {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--bh-on-surface-variant);
+}
+
+.bury-hill-page .bh-tech__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 640px) {
+  .bury-hill-page .bh-tech__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .bury-hill-page .bh-tech__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.bury-hill-page .bh-tech-card {
+  background-color: var(--bh-surface-low);
+  border: 1px solid var(--bh-outline-variant);
+  padding: 2rem 1.5rem;
+  border-radius: var(--bh-radius-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--bh-duration) var(--bh-ease), box-shadow var(--bh-duration) var(--bh-ease);
+}
+.bury-hill-page .bh-tech-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.bury-hill-page .bh-tech-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--bh-radius-full);
+  background-color: var(--bh-brand-green-light);
+  color: var(--bh-brand-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.bury-hill-page .bh-tech-card__title {
+  font-family: var(--bh-font-headline);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--bh-primary);
+  margin-bottom: 0.75rem;
+}
+
+.bury-hill-page .bh-tech-card__desc {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--bh-on-surface-variant);
+}
+
+/* ==========================================================================
+   BLOCK 6: FAQ ACCORDION & FOOTER CTA BANNER
+   ========================================================================== */
+.bury-hill-page .bh-faq {
+  padding: 5rem 0;
+  background-color: var(--bh-surface-low);
+  border-top: 1px solid var(--bh-outline-variant);
+}
+
+.bury-hill-page .bh-faq__header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.bury-hill-page .bh-faq__tag {
+  color: var(--bh-brand-green);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.bury-hill-page .bh-faq__title {
+  font-family: var(--bh-font-headline);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--bh-primary);
+}
+
+.bury-hill-page .bh-faq__list {
+  max-width: 840px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.bury-hill-page .bh-faq__item {
+  background-color: var(--bh-surface);
+  border: 1px solid var(--bh-outline-variant);
+  border-radius: var(--bh-radius-sm);
+  overflow: hidden;
+}
+
+.bury-hill-page .bh-faq__question {
+  padding: 1.25rem 1.5rem;
+  font-family: var(--bh-font-headline);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--bh-primary);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  user-select: none;
+}
+.bury-hill-page .bh-faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.bury-hill-page .bh-faq__icon {
+  color: var(--bh-brand-blue);
+  transition: transform var(--bh-duration) var(--bh-ease);
+}
+.bury-hill-page .bh-faq__item[open] .bh-faq__icon {
+  transform: rotate(180deg);
+}
+
+.bury-hill-page .bh-faq__answer {
+  padding: 0 1.5rem 1.25rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--bh-on-surface-variant);
+  border-top: 1px solid var(--bh-surface-container);
+  padding-top: 1rem;
+}
+
+/* Footer CTA Banner */
+.bury-hill-page .bh-footer-cta {
+  padding: 5rem 0;
+  background-color: var(--bh-primary);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.bury-hill-page .bh-footer-cta__inner {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.bury-hill-page .bh-footer-cta__tag {
+  color: var(--bh-brand-green);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.bury-hill-page .bh-footer-cta__title {
+  font-family: var(--bh-font-headline);
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+}
+@media (min-width: 1024px) {
+  .bury-hill-page .bh-footer-cta__title {
+    font-size: 3rem;
+  }
+}
+
+.bury-hill-page .bh-footer-cta__desc {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2.5rem;
+}
+
+.bury-hill-page .bh-footer-cta__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.bury-hill-page .bh-btn--cta-green {
+  background-color: var(--bh-brand-green);
+  color: #ffffff;
+  border-color: var(--bh-brand-green);
+}
+.bury-hill-page .bh-btn--cta-green:hover {
+  background-color: var(--bh-brand-green-hover);
+  border-color: var(--bh-brand-green-hover);
+  color: #ffffff;
+}
+
+.bury-hill-page .bh-btn--cta-ghost {
+  background-color: transparent;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.bury-hill-page .bh-btn--cta-ghost:hover {
+  border-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}

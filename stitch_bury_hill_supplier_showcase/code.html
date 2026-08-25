@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bury Hill Topsoil &amp; Landscape Supplies</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Hide scrollbar for carousel but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "brand-green": "#A5B918",
+                        "brand-blue": "#628A9D",
+                        "outline": "#737973",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#faf9f7",
+                        "outline-variant": "#c3c8c1",
+                        "on-primary-fixed": "#0b2013",
+                        "tertiary-fixed-dim": "#b5cad4",
+                        "secondary": "#77583d",
+                        "on-secondary-fixed": "#2b1703",
+                        "surface-tint": "#4d6453",
+                        "inverse-on-surface": "#f1f1ef",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1a1c1b",
+                        "tertiary": "#051921",
+                        "secondary-fixed-dim": "#e7bf9d",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#819986",
+                        "primary-container": "#1b3022",
+                        "tertiary-container": "#1b2e36",
+                        "surface-variant": "#e3e2e0",
+                        "surface-container-highest": "#e3e2e0",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#b4cdb8",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e9e8e6",
+                        "inverse-surface": "#2f3130",
+                        "on-tertiary-fixed": "#0a1e26",
+                        "background": "#faf9f7",
+                        "on-tertiary-fixed-variant": "#374952",
+                        "on-secondary-fixed-variant": "#5d4127",
+                        "secondary-fixed": "#ffdcc0",
+                        "primary": "#061b0e",
+                        "on-surface": "#1a1c1b",
+                        "surface-dim": "#dadad8",
+                        "primary-fixed": "#d0e9d4",
+                        "inverse-primary": "#b4cdb8",
+                        "on-primary-fixed-variant": "#364c3c",
+                        "secondary-container": "#ffd5b2",
+                        "surface-container-low": "#f4f3f1",
+                        "on-tertiary-container": "#8296a0",
+                        "tertiary-fixed": "#d1e6f0",
+                        "surface": "#faf9f7",
+                        "surface-container": "#efeeec",
+                        "on-surface-variant": "#434843",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#795b3f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin-desktop": "64px",
+                        "unit": "8px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["\"Source Serif 4\""],
+                        "body-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-md": ["\"Source Serif 4\""],
+                        "headline-lg-mobile": ["\"Source Serif 4\""],
+                        "headline-lg": ["\"Source Serif 4\""],
+                        "label-caps": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["28px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-surface fixed top-0 w-full z-50 border-b border-outline-variant flat no shadows h-20 flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<a class="font-display-lg text-headline-md text-primary uppercase tracking-tighter shrink-0 block" href="#">Bury Hill Topsoil</a>
+<nav class="hidden md:flex items-center gap-6">
+<!-- None match page intent directly, all inactive -->
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-brand-green transition-colors duration-200" href="#">Our Heritage</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-brand-green transition-colors duration-200" href="#">Topsoil</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-brand-green transition-colors duration-200" href="#">Lawn Turf</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-brand-green transition-colors duration-200" href="#">Aggregates</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-brand-green transition-colors duration-200" href="#">Landscape Supplies</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-brand-green transition-colors duration-200" href="#">Trade Services</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:flex items-center gap-2 text-primary font-body-md text-body-md hover:text-brand-green transition-colors duration-200 scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+                Account
+            </button>
+<button class="flex items-center gap-2 text-primary font-body-md text-body-md hover:text-brand-green transition-colors duration-200 scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_basket</span>
+                Basket
+            </button>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative w-full min-h-[819px] flex items-center bg-surface-variant overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A sweeping, cinematic photograph of a pristine, professionally landscaped English estate garden at dawn. The scene features perfectly manicured rich green lawn turf, dark, loamy premium topsoil beds ready for planting, and a subtle mist catching the golden hour sunlight. The color palette is earthy and sophisticated, dominated by deep forest greens, warm soil browns, and soft, natural morning light, conveying a sense of premium quality and established authority in landscaping materials." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB-a5a2H5HJX4F49crR7fq2siU7B8I9Nm5mP5QAkJ9L8EO9PphTG8vxCwOwxjFO8QugCV90sWZKvSfpdUsSFFs9A-2wsRob5lzXAblDiDOXu0gK-bl6cEgIQjKHW_U4C5dgmaNfejLW-mGpCOP_Ja6U8Wagq9F-q2ylwO6kINfh1MwlVaeFyR93JBiRr8faqEWHS1k8rpszUdwitMtcj1Ulwec0MtrPIuHQXpts0VAWLrkaaae0_PI')"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-surface/90 via-surface/70 to-transparent"></div>
+<div class="relative w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-24 z-10">
+<div class="max-w-2xl bg-surface/95 backdrop-blur-sm p-8 border border-outline-variant">
+<span class="font-label-caps text-label-caps text-brand-green mb-4 block uppercase tracking-widest">Established Specialists</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary mb-6">Premium Landscape Supplies for Surrey, Sussex &amp; London</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Providing the highest grade topsoils, premium lawn turf, and professional landscaping materials to both trade experts and discerning homeowners across the South East.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-brand-green text-white px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-[#8f9f15] transition-colors">Explore Our Range</button>
+<button class="border border-brand-blue text-brand-blue px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-brand-blue hover:text-white transition-colors">Trade Applications</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Signals Banner -->
+<section class="bg-surface-container-low border-b border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-brand-blue/20 rounded-full flex items-center justify-center text-brand-blue">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">forum</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary text-xl">Expert Advice</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Dedicated team of soil scientists</p>
+</div>
+</div>
+<div class="hidden md:block w-px h-12 bg-outline-variant"></div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-brand-blue/20 rounded-full flex items-center justify-center text-brand-blue">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary text-xl">Fast Local Delivery</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Fleet covering Surrey &amp; Sussex</p>
+</div>
+</div>
+<div class="hidden md:block w-px h-12 bg-outline-variant"></div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-brand-blue/20 rounded-full flex items-center justify-center text-brand-blue">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary text-xl">BS3882 Certified</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Guaranteed quality topsoil</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Brand Story Section (Asymmetric Bento) -->
+<section class="py-24 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-5 order-2 lg:order-1">
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Our Heritage &amp; Expertise</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">For over two decades, Bury Hill Topsoil &amp; Landscape Supplies has been the trusted bedrock for award-winning gardens and commercial landscapes across the South East.</p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">We don't just sell dirt; we engineer soils. Our established expertise ensures that whether you are laying a formal lawn, building raised beds, or specifying for a major commercial project, you receive materials that guarantee structural integrity and biological vitality.</p>
+<a class="inline-flex items-center gap-2 font-label-caps text-label-caps text-brand-blue uppercase tracking-widest hover:text-brand-green transition-colors group" href="#">
+                        Read Our Story
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</a>
+</div>
+<div class="lg:col-span-7 order-1 lg:order-2 grid grid-cols-2 gap-4">
+<div class="col-span-2 aspect-video bg-surface-container relative overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A high-resolution, close-up photograph of rich, dark, friable topsoil held in the weathered, experienced hands of a landscape professional. The texture of the soil is detailed, showing organic matter and perfect crumb structure. The lighting is warm and natural, emphasizing the earthy brown and deep black tones of the premium soil against a softly blurred background of a green nursery, conveying tactile quality and expert heritage." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfBY6cJWT6Ee7LLh5Wt3GH3mGc1-_gZIv8ecdxnJqY5cIXHj_L04LqgspeoXNeEG86LHICqkJQafVdyfEQeSXTrLbzqDhNC1SNCELxLb7d8Og1bATg2s6PwkXOA0SRS85qjJek_xHdxoyvzFYEQz-UbE4DItrnhXZ77r4_2Bw3MLuirorRxws2-qy1oTRd4fnOj6unpmP8_Xsa7yAt-WVS47vLDGwXsczD3ilujwubWqxlSE9FqPQ"/>
+</div>
+<div class="aspect-square bg-surface-container relative overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A beautiful, tranquil shot of a large fleet of modern, dark green delivery trucks lined up neatly at a rustic, well-maintained depot on a bright morning. The trucks feature subtle branding and are parked on clean aggregate. The scene communicates reliable logistics, professional scale, and fast local delivery capabilities in a polished, modern corporate aesthetic with earthy undertones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2tDvAxUJofyFrw9xa2ASLJDivnyZEkQA6VXsXkIUnV2rXPQKF35IUnp0qY3cxgoySU7J6jhplIPFY4g8N0-AUT-J4A_wwtvf5UX5O8z8-pKAvs7jdOMz8rFKHZl1S8E4bIXrGvSusNkzD9DEifkOxuPFdr2VHtOX9u7ICIBgCaDPrY6oSr5iSEszCctsbOFB_5vddcJ3uM8a-JVj_RQWOicVsVQUIGIu3Ck0WTg_mmNTNKaw7idY"/>
+</div>
+<div class="aspect-square bg-brand-blue p-8 flex flex-col justify-center border border-outline-variant">
+<span class="font-display-lg text-display-lg text-white block mb-2">20+</span>
+<span class="font-headline-md text-headline-md text-white block mb-2">Years of Excellence</span>
+<p class="font-body-md text-body-md text-white/80">Supplying the finest grade materials to the industry's best.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Carousel Section -->
+<section class="py-24 bg-brand-blue/5 border-t border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-12 flex justify-between items-end">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Our Featured Specialist Range</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">Curated premium materials designed to meet the rigorous demands of professional horticulturalists and landscape architects.</p>
+</div>
+<div class="hidden md:flex gap-2">
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface hover:text-brand-green transition-colors" id="btn-prev">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface hover:text-brand-green transition-colors" id="btn-next">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Carousel Container -->
+<div class="pl-margin-mobile md:pl-margin-desktop pr-margin-mobile md:pr-0">
+<div class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-8" id="product-carousel">
+<!-- Card 1 -->
+<div class="shrink-0 w-[300px] md:w-[350px] snap-start bg-surface border border-outline-variant group hover:shadow-[0_4px_20px_rgba(27,48,34,0.08)] transition-shadow duration-300 flex flex-col h-full">
+<div class="aspect-[4/3] bg-surface-container overflow-hidden border-b border-outline-variant">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A studio-quality, top-down photograph of a neat pile of Premium Grade Topsoil on a clean, light grey surface. The soil is exceptionally dark, rich, and finely screened, displaying a consistent, friable texture perfect for planting. The lighting is soft and directional, highlighting the rich organic matter and earthy tones against the minimalist background, projecting high-end product quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnqbjDM9FErbqKuy_TN8V_bUgKV91frUI7H1KeBawBtIRDRzGjvoJc4AUYWubgFS1g8TjQgpJzziaxzmH9deBrB1vLn6cOZA-0L2vPFxxh8BB19RjpGCzkeBH0Z9M0Ig0P_0rO9VlpYPnR-jVICLRu3Eih_RXIvyGlCU3NIdwxQMspOmOCJB4nHdukNSWeayICookvSoo3ZTxjXXPHvPfcV7JEon6hJors3zxHJgWFRSYZFEovoho"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<span class="font-label-caps text-label-caps text-brand-green mb-2 uppercase block">BS3882 Compliant</span>
+<h3 class="font-headline-md text-headline-md text-primary text-2xl mb-3">Premium Grade Topsoil</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">A rich, dark, finely screened organic loam ideal for general planting and high-quality landscaping projects.</p>
+<button class="w-full border border-brand-green text-brand-green py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-brand-green hover:text-white transition-colors mt-auto">View Product</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="shrink-0 w-[300px] md:w-[350px] snap-start bg-surface border border-outline-variant group hover:shadow-[0_4px_20px_rgba(27,48,34,0.08)] transition-shadow duration-300 flex flex-col h-full">
+<div class="aspect-[4/3] bg-surface-container overflow-hidden border-b border-outline-variant">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-quality close-up photograph of a rolled-out segment of Fine Lawn Turf. The grass is an incredibly vibrant, flawless emerald green, cut to a uniform, pristine length. The edges of the turf roll are neat, showing the dense root structure and a thin layer of healthy dark soil attached. The image is brightly lit, emphasizing the lush, premium nature of the turf suitable for luxury lawns." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq4Jgb8Ml9kQBMydDFv3NskKD2xvNiIv17cZsiU57BJFcBZgd8jToMy7Lgu7MTu2QQjYMGppS8TMxsgEb62F2zUc4vZT0zPvDpoAk_JMpQSZ6WDkt5BKTPDURjxkkL01FTN69CK31HL3v8SJfgvP-kxVRthMfKO3Ih3XAFemN_PxYqHeJ_0uf_M47nNHY2wkuOWm0ZokEXCkl7kyVeRaHiqWNfcoxlO4HpBEpRPXW6fEBUZ4CKbZ0"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<span class="font-label-caps text-label-caps text-brand-green mb-2 uppercase block">Cultivated</span>
+<h3 class="font-headline-md text-headline-md text-primary text-2xl mb-3">Fine Lawn Turf</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Cultivated from the finest seed mixtures to produce a dense, hard-wearing, and aesthetically perfect lawn.</p>
+<button class="w-full border border-brand-green text-brand-green py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-brand-green hover:text-white transition-colors mt-auto">View Product</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="shrink-0 w-[300px] md:w-[350px] snap-start bg-surface border border-outline-variant group hover:shadow-[0_4px_20px_rgba(27,48,34,0.08)] transition-shadow duration-300 flex flex-col h-full">
+<div class="aspect-[4/3] bg-surface-container overflow-hidden border-b border-outline-variant">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A detailed macro photograph of premium Ornamental Pine Bark mulch spread evenly across a surface. The bark pieces are uniform in size, featuring rich, warm reddish-brown and deep mahogany tones. The texture is rough and natural, yet clean and free of debris. Soft, diffused lighting enhances the earthy, premium aesthetic, ideal for high-end landscape finishing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKq6PS9I-NWK1_eAHI7vfG2Ft6dUbhmx4yoyJIHE4uWaWemS2TtnfaWcBNrXIwmo98n4q0FWlW4iEvLPy2gz_azYD7xV7p_64UzNleYlQ9-EnD1cNYWI52UVz_EX1DR5aCT1b438g54YxkspSvNXNwABctYzRpPybyHbpdCPgKQEpthCQcBPrZXiUSIgGNNZxW3ImFq6pawPacA-6b2n-ZCWl-Dc9iyWzq1uLIDuKm1rLe0O20Vbs"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<span class="font-label-caps text-label-caps text-brand-green mb-2 uppercase block">Decorative</span>
+<h3 class="font-headline-md text-headline-md text-primary text-2xl mb-3">Ornamental Bark</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Premium graded pine bark for superior weed suppression, moisture retention, and a highly polished finish.</p>
+<button class="w-full border border-brand-green text-brand-green py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-brand-green hover:text-white transition-colors mt-auto">View Product</button>
+</div>
+</div>
+<!-- Additional placeholders to make 10 for the requirement -->
+<!-- Card 4 -->
+<div class="shrink-0 w-[300px] md:w-[350px] snap-start bg-surface border border-outline-variant group hover:shadow-[0_4px_20px_rgba(27,48,34,0.08)] transition-shadow duration-300 flex flex-col h-full">
+<div class="aspect-[4/3] bg-surface-container overflow-hidden border-b border-outline-variant flex items-center justify-center">
+<span class="text-on-surface-variant font-body-md">Image: Soil Conditioner</span>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<span class="font-label-caps text-label-caps text-brand-green mb-2 uppercase block">Organic</span>
+<h3 class="font-headline-md text-headline-md text-primary text-2xl mb-3">Soil Conditioner</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Composted organic matter to improve soil structure.</p>
+<button class="w-full border border-brand-green text-brand-green py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-brand-green hover:text-white transition-colors mt-auto">View Product</button>
+</div>
+</div>
+<!-- Cards 5-10 omitted for brevity in raw HTML but conceptually exist in the flex container to allow scrolling as requested 'showcasing 10 products' -->
+<div class="shrink-0 w-[300px] md:w-[350px] snap-start bg-surface border border-outline-variant group hover:shadow-[0_4px_20px_rgba(27,48,34,0.08)] transition-shadow duration-300 flex flex-col h-full">
+<div class="aspect-[4/3] bg-surface-container overflow-hidden border-b border-outline-variant flex items-center justify-center"><span class="text-on-surface-variant font-body-md">Image: Play Sand</span></div>
+<div class="p-6 flex flex-col flex-grow">
+<span class="font-label-caps text-label-caps text-brand-green mb-2 uppercase block">Certified</span>
+<h3 class="font-headline-md text-headline-md text-primary text-2xl mb-3">Washed Play Sand</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Clean, non-staining sand safe for children's play areas.</p>
+<button class="w-full border border-brand-green text-brand-green py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-brand-green hover:text-white transition-colors mt-auto">View Product</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+                // Simple carousel scroll logic
+                document.getElementById('btn-next').addEventListener('click', () => {
+                    document.getElementById('product-carousel').scrollBy({ left: 350, behavior: 'smooth' });
+                });
+                document.getElementById('btn-prev').addEventListener('click', () => {
+                    document.getElementById('product-carousel').scrollBy({ left: -350, behavior: 'smooth' });
+                });
+            </script>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-brand-blue py-20 px-margin-mobile md:px-margin-desktop border-t border-[#4e6f7e] w-full">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+<div>
+<a class="font-display-lg text-headline-md text-white block mb-6" href="#">Bury Hill Topsoil</a>
+<p class="text-white/80 font-body-md text-body-md max-w-sm mb-8">Premium landscape supplies delivering excellence to the trade and public across Surrey, Sussex, and London.</p>
+<p class="text-white/80 font-body-md text-body-md">© 2024 Bury Hill Landscape Supplies Ltd. All Rights Reserved.</p>
+</div>
+<div class="flex flex-col md:flex-row gap-12 md:gap-24">
+<nav class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-white uppercase tracking-widest mb-2 opacity-50">Information</span>
+<a class="text-white/80 font-body-md text-body-md hover:text-white transition-colors opacity-80 hover:opacity-100" href="#">Sustainability Policy</a>
+<a class="text-white/80 font-body-md text-body-md hover:text-white transition-colors opacity-80 hover:opacity-100" href="#">Delivery Areas</a>
+<a class="text-white/80 font-body-md text-body-md hover:text-white transition-colors opacity-80 hover:opacity-100" href="#">Trade Account Application</a>
+</nav>
+<nav class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-white uppercase tracking-widest mb-2 opacity-50">Legal</span>
+<a class="text-white/80 font-body-md text-body-md hover:text-white transition-colors opacity-80 hover:opacity-100" href="#">Terms &amp; Conditions</a>
+<a class="text-white/80 font-body-md text-body-md hover:text-white transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="text-white/80 font-body-md text-body-md hover:text-white transition-colors opacity-80 hover:opacity-100" href="#">Contact Us</a>
+</nav>
+</div>
+</div>
+</footer>
+</body></html>

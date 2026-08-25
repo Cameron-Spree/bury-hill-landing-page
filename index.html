@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bury Hill Landing Page Builder | Lawsons</title>
+    <link rel="stylesheet" href="editor.css">
+    
+    <!-- Google Fonts & Material Symbols -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <!-- Scoped Template Styles -->
+    <link rel="stylesheet" href="template-styles.css">
+
+    <!-- Vue 3 CDN (Zero-build) -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body id="app">
+    <!-- TOP NAVBAR -->
+    <header class="builder-nav">
+        <div class="nav-brand">
+            <span class="material-symbols-outlined">yard</span>
+            <strong>Bury Hill</strong> Supplier Landing Page Builder
+        </div>
+        <div class="nav-actions">
+            <button @click="resetState" class="btn-danger" title="Reset all changes to original defaults">
+                <span class="material-symbols-outlined" style="font-size: 18px;">restart_alt</span> Reset Defaults
+            </button>
+            <button @click="exportBlocks" class="btn-primary">
+                <span class="material-symbols-outlined" style="font-size: 18px;">download</span> Export Magento Blocks
+            </button>
+        </div>
+    </header>
+
+    <div class="builder-layout">
+        <!-- LEFT PANEL: Editor Controls -->
+        <aside class="builder-sidebar">
+            <div class="sidebar-tabs">
+                <button :class="{ active: activeTab === 'hero' }" @click="activeTab = 'hero'">Hero & Trust</button>
+                <button :class="{ active: activeTab === 'story' }" @click="activeTab = 'story'">Heritage</button>
+                <button :class="{ active: activeTab === 'products' }" @click="activeTab = 'products'">10 Products</button>
+                <button :class="{ active: activeTab === 'tech' }" @click="activeTab = 'tech'">Standards</button>
+                <button :class="{ active: activeTab === 'faq' }" @click="activeTab = 'faq'">FAQs</button>
+                <button :class="{ active: activeTab === 'cta' }" @click="activeTab = 'cta'">Footer</button>
+                <button :class="{ active: activeTab === 'design' }" @click="activeTab = 'design'">Design</button>
+                <button :class="{ active: activeTab === 'sizes' }" @click="activeTab = 'sizes'">Scales</button>
+            </div>
+
+            <div class="sidebar-content">
+                <!-- HERO & TRUST TAB -->
+                <div v-show="activeTab === 'hero'">
+                    <p class="section-help">Configure the high-impact hero banner and trust signal strip.</p>
+                    
+                    <h4 class="settings-divider">Hero Banner</h4>
+                    <div class="form-group">
+                        <label>Hero Badge Label</label>
+                        <input type="text" v-model="state.heroBadge">
+                    </div>
+                    <div class="form-group">
+                        <label>Main Headline</label>
+                        <textarea v-model="state.heroTitle"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Lead Paragraph</label>
+                        <textarea v-model="state.heroDesc" rows="3"></textarea>
+                    </div>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>Button 1 Text</label>
+                            <input type="text" v-model="state.heroBtn1">
+                        </div>
+                        <div class="form-group">
+                            <label>Button 1 URL</label>
+                            <input type="text" v-model="state.heroBtn1Url">
+                        </div>
+                    </div>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>Button 2 Text</label>
+                            <input type="text" v-model="state.heroBtn2">
+                        </div>
+                        <div class="form-group">
+                            <label>Button 2 URL</label>
+                            <input type="text" v-model="state.heroBtn2Url">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Hero Background Image URL</label>
+                        <input type="text" v-model="state.heroImage">
+                    </div>
+
+                    <h4 class="settings-divider">Trust Signals Strip (3 Cards)</h4>
+                    <div class="product-editor-card">
+                        <h5>Signal 1</h5>
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label>Icon</label>
+                                <input type="text" v-model="state.trust1Icon">
+                            </div>
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" v-model="state.trust1Title">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input type="text" v-model="state.trust1Sub">
+                        </div>
+                    </div>
+
+                    <div class="product-editor-card">
+                        <h5>Signal 2</h5>
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label>Icon</label>
+                                <input type="text" v-model="state.trust2Icon">
+                            </div>
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" v-model="state.trust2Title">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input type="text" v-model="state.trust2Sub">
+                        </div>
+                    </div>
+
+                    <div class="product-editor-card">
+                        <h5>Signal 3</h5>
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label>Icon</label>
+                                <input type="text" v-model="state.trust3Icon">
+                            </div>
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" v-model="state.trust3Title">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input type="text" v-model="state.trust3Sub">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BRAND HERITAGE BENTO TAB -->
+                <div v-show="activeTab === 'story'">
+                    <p class="section-help">Tell the Bury Hill supplier heritage story with asymmetric bento imagery.</p>
+                    
+                    <h4 class="settings-divider">Story Copy</h4>
+                    <div class="form-group">
+                        <label>Overline Tag</label>
+                        <input type="text" v-model="state.storyTag">
+                    </div>
+                    <div class="form-group">
+                        <label>Section Title</label>
+                        <input type="text" v-model="state.storyTitle">
+                    </div>
+                    <div class="form-group">
+                        <label>Lead Paragraph</label>
+                        <textarea v-model="state.storyLead" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Body Paragraph</label>
+                        <textarea v-model="state.storyBody" rows="4"></textarea>
+                    </div>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>Link Text</label>
+                            <input type="text" v-model="state.storyLinkText">
+                        </div>
+                        <div class="form-group">
+                            <label>Link URL</label>
+                            <input type="text" v-model="state.storyLinkUrl">
+                        </div>
+                    </div>
+
+                    <h4 class="settings-divider">Bento Visuals & Stats</h4>
+                    <div class="form-group">
+                        <label>Wide Soil Close-up Image URL</label>
+                        <input type="text" v-model="state.storyImgWide">
+                    </div>
+                    <div class="form-group">
+                        <label>Square Delivery Fleet Image URL</label>
+                        <input type="text" v-model="state.storyImgSquare">
+                    </div>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>Stat Number</label>
+                            <input type="text" v-model="state.storyStatNum">
+                        </div>
+                        <div class="form-group">
+                            <label>Stat Title</label>
+                            <input type="text" v-model="state.storyStatTitle">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Stat Description</label>
+                        <textarea v-model="state.storyStatDesc" rows="2"></textarea>
+                    </div>
+                </div>
+
+                <!-- 10 PRODUCTS CAROUSEL TAB -->
+                <div v-show="activeTab === 'products'">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <p class="section-help" style="margin-bottom: 0;">Manage the 10 stocked Bury Hill products.</p>
+                        <button @click="addProduct" class="btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">+ Add Product</button>
+                    </div>
+                    
+                    <h4 class="settings-divider">Carousel Header</h4>
+                    <div class="form-group">
+                        <label>Section Title</label>
+                        <input type="text" v-model="state.carouselTitle">
+                    </div>
+                    <div class="form-group">
+                        <label>Subtitle</label>
+                        <textarea v-model="state.carouselSubtitle" rows="2"></textarea>
+                    </div>
+
+                    <h4 class="settings-divider">Stocked Products ({{ state.products.length }})</h4>
+                    <div v-for="(prod, idx) in state.products" :key="idx" class="product-editor-card">
+                        <h5>
+                            <span>#{{ idx + 1 }} — {{ prod.title }}</span>
+                            <button @click="removeProduct(idx)" style="background:none; border:none; color:var(--danger); cursor:pointer;" title="Remove Card">
+                                <span class="material-symbols-outlined" style="font-size: 16px;">delete</span>
+                            </button>
+                        </h5>
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label>Tag / Badge</label>
+                                <input type="text" v-model="prod.badge">
+                            </div>
+                            <div class="form-group">
+                                <label>Product Name</label>
+                                <input type="text" v-model="prod.title">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea v-model="prod.desc" rows="2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Image URL</label>
+                            <input type="text" v-model="prod.img">
+                        </div>
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label>Button Text</label>
+                                <input type="text" v-model="prod.btnText">
+                            </div>
+                            <div class="form-group">
+                                <label>Product URL</label>
+                                <input type="text" v-model="prod.btnUrl">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STANDARDS & QUALITY TAB -->
+                <div v-show="activeTab === 'tech'">
+                    <p class="section-help">Highlight technical certifications and quality assurance.</p>
+                    
+                    <h4 class="settings-divider">Section Header</h4>
+                    <div class="form-group">
+                        <label>Overline Tag</label>
+                        <input type="text" v-model="state.techTag">
+                    </div>
+                    <div class="form-group">
+                        <label>Section Title</label>
+                        <input type="text" v-model="state.techTitle">
+                    </div>
+                    <div class="form-group">
+                        <label>Subtitle</label>
+                        <textarea v-model="state.techSubtitle" rows="2"></textarea>
+                    </div>
+
+                    <h4 class="settings-divider">Quality Pillars</h4>
+                    <div v-for="(card, idx) in state.techCards" :key="idx" class="product-editor-card">
+                        <h5>Standard {{ idx + 1 }}</h5>
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label>Material Icon</label>
+                                <input type="text" v-model="card.icon">
+                            </div>
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" v-model="card.title">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Specification Details</label>
+                            <textarea v-model="card.desc" rows="2"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ TAB -->
+                <div v-show="activeTab === 'faq'">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <p class="section-help" style="margin-bottom: 0;">Frequently Asked Questions accordion.</p>
+                        <button @click="addFaq" class="btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">+ Add FAQ</button>
+                    </div>
+                    
+                    <h4 class="settings-divider">FAQ Header</h4>
+                    <div class="form-group">
+                        <label>Overline Tag</label>
+                        <input type="text" v-model="state.faqTag">
+                    </div>
+                    <div class="form-group">
+                        <label>Section Title</label>
+                        <input type="text" v-model="state.faqTitle">
+                    </div>
+
+                    <h4 class="settings-divider">Questions & Answers</h4>
+                    <div v-for="(f, idx) in state.faqs" :key="idx" class="faq-editor-card">
+                        <h5>
+                            <span>Q{{ idx + 1 }}</span>
+                            <button @click="removeFaq(idx)" style="background:none; border:none; color:var(--danger); cursor:pointer;" title="Delete Question">
+                                <span class="material-symbols-outlined" style="font-size: 16px;">delete</span>
+                            </button>
+                        </h5>
+                        <div class="form-group">
+                            <label>Question</label>
+                            <input type="text" v-model="f.question">
+                        </div>
+                        <div class="form-group">
+                            <label>Answer</label>
+                            <textarea v-model="f.answer" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FOOTER CTA TAB -->
+                <div v-show="activeTab === 'cta'">
+                    <p class="section-help">Configure bottom trade supply & inquiry call to action.</p>
+                    
+                    <h4 class="settings-divider">Call to Action Banner</h4>
+                    <div class="form-group">
+                        <label>Overline Tag</label>
+                        <input type="text" v-model="state.footerTag">
+                    </div>
+                    <div class="form-group">
+                        <label>Headline</label>
+                        <input type="text" v-model="state.footerTitle">
+                    </div>
+                    <div class="form-group">
+                        <label>Paragraph</label>
+                        <textarea v-model="state.footerDesc" rows="3"></textarea>
+                    </div>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>Primary Button Text</label>
+                            <input type="text" v-model="state.footerBtn1">
+                        </div>
+                        <div class="form-group">
+                            <label>Primary Button URL</label>
+                            <input type="text" v-model="state.footerBtn1Url">
+                        </div>
+                    </div>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>Secondary Button Text</label>
+                            <input type="text" v-model="state.footerBtn2">
+                        </div>
+                        <div class="form-group">
+                            <label>Secondary Button URL</label>
+                            <input type="text" v-model="state.footerBtn2Url">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DESIGN TAB -->
+                <div v-show="activeTab === 'design'">
+                    <p class="section-help">Global typography and branding variables.</p>
+                    
+                    <h4 class="settings-divider">Typography</h4>
+                    <div class="form-group">
+                        <label>Headlines Font</label>
+                        <input type="text" v-model="state.fontHeadline">
+                        <p class="section-help" style="margin-top: 0.25rem;">Default: Source Serif 4</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Body & Labels Font</label>
+                        <input type="text" v-model="state.fontBody">
+                        <p class="section-help" style="margin-top: 0.25rem;">Default: Hanken Grotesk</p>
+                    </div>
+                    
+                    <h4 class="settings-divider">Global Base Size</h4>
+                    <div class="form-group">
+                        <label>Base Font Size (px)</label>
+                        <input type="number" v-model="state.fontSize" min="12" max="24" step="1">
+                        <p class="section-help" style="margin-top: 0.25rem;">Scales all responsive rem units across the entire page proportionally.</p>
+                    </div>
+                </div>
+
+                <!-- SIZES & SCALES TAB -->
+                <div v-show="activeTab === 'sizes'">
+                    <p class="section-help">Scale multipliers for individual section elements (1.0 = Default).</p>
+                    
+                    <h4 class="settings-divider">Hero Section</h4>
+                    <div class="grid-2">
+                        <div class="form-group"><label>Hero Badge</label><input type="number" step="0.1" v-model="state.scHeroBadge"></div>
+                        <div class="form-group"><label>Hero Title</label><input type="number" step="0.1" v-model="state.scHeroTitle"></div>
+                    </div>
+                    <div class="grid-2">
+                        <div class="form-group"><label>Description</label><input type="number" step="0.1" v-model="state.scHeroDesc"></div>
+                        <div class="form-group"><label>Buttons</label><input type="number" step="0.1" v-model="state.scHeroBtn"></div>
+                    </div>
+
+                    <h4 class="settings-divider">Trust Signals</h4>
+                    <div class="grid-2">
+                        <div class="form-group"><label>Trust Title</label><input type="number" step="0.1" v-model="state.scTrustTitle"></div>
+                        <div class="form-group"><label>Trust Subtitle</label><input type="number" step="0.1" v-model="state.scTrustSub"></div>
+                    </div>
+
+                    <h4 class="settings-divider">Brand Heritage</h4>
+                    <div class="grid-2">
+                        <div class="form-group"><label>Story Title</label><input type="number" step="0.1" v-model="state.scStoryTitle"></div>
+                        <div class="form-group"><label>Stat Number</label><input type="number" step="0.1" v-model="state.scStatNum"></div>
+                    </div>
+                    <div class="grid-2">
+                        <div class="form-group"><label>Lead Paragraph</label><input type="number" step="0.1" v-model="state.scStoryLead"></div>
+                        <div class="form-group"><label>Body Paragraph</label><input type="number" step="0.1" v-model="state.scStoryBody"></div>
+                    </div>
+
+                    <h4 class="settings-divider">10-Product Carousel</h4>
+                    <div class="grid-2">
+                        <div class="form-group"><label>Carousel Title</label><input type="number" step="0.1" v-model="state.scCarouselTitle"></div>
+                        <div class="form-group"><label>Card Title</label><input type="number" step="0.1" v-model="state.scProductTitle"></div>
+                    </div>
+                    <div class="grid-2">
+                        <div class="form-group"><label>Card Badge</label><input type="number" step="0.1" v-model="state.scProductBadge"></div>
+                        <div class="form-group"><label>Card Description</label><input type="number" step="0.1" v-model="state.scProductDesc"></div>
+                    </div>
+
+                    <h4 class="settings-divider">Technical & FAQs</h4>
+                    <div class="grid-2">
+                        <div class="form-group"><label>Tech Title</label><input type="number" step="0.1" v-model="state.scTechTitle"></div>
+                        <div class="form-group"><label>Tech Card Title</label><input type="number" step="0.1" v-model="state.scTechCardTitle"></div>
+                    </div>
+                    <div class="grid-2">
+                        <div class="form-group"><label>FAQ Question</label><input type="number" step="0.1" v-model="state.scFaqQ"></div>
+                        <div class="form-group"><label>FAQ Answer</label><input type="number" step="0.1" v-model="state.scFaqA"></div>
+                    </div>
+
+                    <h4 class="settings-divider">Footer CTA</h4>
+                    <div class="grid-2">
+                        <div class="form-group"><label>Footer Title</label><input type="number" step="0.1" v-model="state.scFooterTitle"></div>
+                        <div class="form-group"><label>Footer Paragraph</label><input type="number" step="0.1" v-model="state.scFooterDesc"></div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- RIGHT PANEL: Live Preview Workspace -->
+        <main class="builder-preview">
+            <div class="preview-toolbar">
+                <span>Live Interactive Preview</span>
+                <div class="device-switcher">
+                    <button class="device-btn" :class="{ active: previewDevice === 'desktop' }" @click="previewDevice = 'desktop'" title="Desktop (100%)">
+                        <span class="material-symbols-outlined" style="font-size: 18px;">desktop_windows</span>
+                    </button>
+                    <button class="device-btn" :class="{ active: previewDevice === 'tablet' }" @click="previewDevice = 'tablet'" title="Tablet (768px)">
+                        <span class="material-symbols-outlined" style="font-size: 18px;">tablet_mac</span>
+                    </button>
+                    <button class="device-btn" :class="{ active: previewDevice === 'mobile' }" @click="previewDevice = 'mobile'" title="Mobile (390px)">
+                        <span class="material-symbols-outlined" style="font-size: 18px;">smartphone</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="preview-container">
+                <div class="preview-wrapper" :class="previewDevice" v-html="previewHtml"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- EXPORT MAGENTO BLOCKS MODAL -->
+    <div class="modal-overlay" v-if="showExport" @click.self="showExport = false">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>
+                    <span class="material-symbols-outlined" style="color: var(--accent);">extension</span>
+                    Magento 2 CMS Export Blocks
+                </h3>
+                <button class="modal-close" @click="showExport = false">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="modal-tabs">
+                <button :class="{ active: exportTab === 1 }" @click="exportTab = 1">Block 1: Scoped CSS</button>
+                <button :class="{ active: exportTab === 2 }" @click="exportTab = 2">Block 2: Hero & Trust</button>
+                <button :class="{ active: exportTab === 3 }" @click="exportTab = 3">Block 3: Brand Heritage</button>
+                <button :class="{ active: exportTab === 4 }" @click="exportTab = 4">Block 4: 10-Product Carousel</button>
+                <button :class="{ active: exportTab === 5 }" @click="exportTab = 5">Block 5: Standards</button>
+                <button :class="{ active: exportTab === 6 }" @click="exportTab = 6">Block 6: FAQ & Footer</button>
+                <button :class="{ active: exportTab === 'full' }" @click="exportTab = 'full'">★ Full Landing Page</button>
+            </div>
+            <div class="modal-body">
+                <textarea class="code-preview-box" readonly :value="exportTab === 'full' ? exportedBlocks.full : exportedBlocks['block' + exportTab]"></textarea>
+            </div>
+            <div class="modal-footer">
+                <span style="font-size: 0.75rem; color: var(--text-muted);">
+                    All blocks are cleanly scoped under <code>.bury-hill-page</code> to prevent styling conflicts.
+                </span>
+                <button class="btn-primary" @click="copyActiveBlock">
+                    <span class="material-symbols-outlined" style="font-size: 18px;">content_copy</span>
+                    Copy Active Block
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
