@@ -475,7 +475,14 @@
             </div>
             
             <div class="preview-container">
-                <div class="preview-wrapper" :class="previewDevice" v-html="previewHtml"></div>
+                <iframe
+                    id="preview-iframe"
+                    class="preview-iframe"
+                    :class="previewDevice"
+                    :srcdoc="previewIframeDoc"
+                    title="Live Responsive Preview"
+                    frameborder="0"
+                ></iframe>
             </div>
         </main>
     </div>

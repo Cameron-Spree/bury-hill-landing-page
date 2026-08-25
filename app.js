@@ -523,6 +523,44 @@ createApp({
                    wrapBlock(getBlock2(state) + "\n" + getBlock3(state) + "\n" + getBlock4(state) + "\n" + getBlock5(state) + "\n" + getBlock6(state));
         });
 
+        const previewIframeDoc = computed(() => {
+            return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="template-styles.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #faf9f7;
+      overflow-x: hidden;
+    }
+    .bury-hill-page {
+      --bh-font-headline: '${state.fontHeadline}', serif !important;
+      --bh-font-body: '${state.fontBody}', sans-serif !important;
+      font-size: ${state.fontSize}px !important;
+    }
+    ${getScaleCSS(state)}
+  </style>
+</head>
+<body>
+  ${wrapBlock(
+    getBlock2(state) + "\n" +
+    getBlock3(state) + "\n" +
+    getBlock4(state) + "\n" +
+    getBlock5(state) + "\n" +
+    getBlock6(state)
+  )}
+</body>
+</html>`;
+        });
+
         const exportBlocks = async () => {
             let block1Str = "";
             try {
@@ -644,6 +682,7 @@ ${getScaleCSS(state)}
             activeTab,
             previewDevice,
             previewHtml,
+            previewIframeDoc,
             showExport,
             exportTab,
             exportedBlocks,
