@@ -194,6 +194,7 @@
    ========================================================================== */
 .bury-hill-page .bh-hero {
   position: relative;
+  z-index: 1;
   min-height: 580px;
   display: flex;
   align-items: center;
@@ -206,6 +207,7 @@
 .bury-hill-page .bh-hero__overlay {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(90deg, rgba(250, 249, 247, 0.95) 0%, rgba(250, 249, 247, 0.85) 45%, rgba(250, 249, 247, 0.3) 100%);
 }
 
@@ -217,7 +219,7 @@
 
 .bury-hill-page .bh-hero__content-box {
   position: relative;
-  z-index: 10;
+  z-index: 2;
   max-width: 680px;
   background: rgba(250, 249, 247, 0.95);
   backdrop-filter: blur(8px);

@@ -321,7 +321,7 @@ const getBlock2 = (s) => {
 <!-- BLOCK 2: HERO & TRUST SIGNALS -->
 <section class="bh-hero" id="bury-hill-hero" style="background-image: url('${s.heroImage}');">
   <div class="bh-hero__overlay"></div>
-  <div class="bh-container" style="position: relative; z-index: 10; padding-top: 4.5rem; padding-bottom: 4.5rem;">
+  <div class="bh-container" style="position: relative; z-index: 2; padding-top: 4.5rem; padding-bottom: 4.5rem;">
     <div class="bh-hero__content-box">
       <div class="bh-hero__brand-header">
         <img src="${s.heroLogo || 'https://www.buryhilltopsoilandlogs.co.uk/image/catalog/logo.png'}" alt="Bury Hill Landscape Supplies" class="bh-hero__logo" loading="eager" />
